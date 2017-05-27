@@ -50,17 +50,6 @@ arr.map((val,index) => {
 })
 
 
-// app.post('/ajax/deal', function(req, res) {
-//     console.log("server accept:", req.body.name);
-//     var data = {
-//         name: req.body.name + '-server 3000 process',
-//         id: req.body.id + '-server 3000 process',
-//     }
-
-//     res.send(data);
-//     res.end();
-
-// })
 
 app.listen(app.get('port'),function(){
     console.log('http Server:http//localhost:'+app.get('port')+'/');
