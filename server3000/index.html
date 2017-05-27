@@ -12,8 +12,28 @@
 	</form>
 
 	<p><input type="button" id="submit2" value="啦啦啦提交"></p>
+	<p><input type="button" id="submit3" value="jsonp输出"></p>
 </body>
 <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+
+<!-- JSONP方法解决跨域问题 -->
+<script type="text/javascript"> 
+	function handleResponse(response) {
+		$('#submit3').click(function() {
+					console.log('my name is:' + response.name + 'my id is:' + response.id );
+			})
+	}
+	function handleResponse2(response) {
+		console.log('who am i? ');
+	}
+	var script = document.createElement("script");
+	// 两种方式引入都行
+	// script.src = "http://localhost:3002/index.js";
+	script.src = "http://localhost:3002/index.js?callback=handleResponse";
+	document.body.insertBefore(script, document.body.firstChild);
+</script>
+
+
 <script type="text/javascript">
 	$(function(){
 		$('#submit').click(function() {
@@ -54,6 +74,7 @@
 				}
 			});
 		});
+
 	});
 </script>
 </html>
