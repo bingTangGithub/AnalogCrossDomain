@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax跨域请求测试</title>
+</head>
+<body>
+	<form id="form1" action="#">
+		<p>名称 ： <input type="text" name="name" id="name"></p>
+		<p>	 ID ： <input type="text" name="id" id="id"></p>
+		<p><input type="button" id="submit" value="提交"></p>
+	</form>
+
+	<p><input type="button" id="submit2" value="啦啦啦提交"></p>
+</body>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#submit').click(function() {
+			let data = {
+				name: $('#name').val(),
+				id: $('#id').val()
+			};
+			$.ajax({
+				type: 'POST',
+				data: data,
+				url: 'http://localhost:3000/ajax/deal',
+				dataType: 'json',
+				cache: false,
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(jqXHL, textStatus, errorThrown) {
+					console.log('error' + textStatus + '' + errorThrown);
+				}
+			});
+		});
+
+		$('#submit2').click(function() {
+			let data = {
+				name: $('#name').val(),
+				id: $('#id').val()
+			};
+			$.ajax({
+				type: 'get',
+				url: 'http://localhost:3001/a',
+				dataType: 'json',
+				cache: false,
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(jqXHL, textStatus, errorThrown) {
+					console.log('error' + textStatus + '' + errorThrown);
+				}
+			});
+		});
+	});
+</script>
+</html>
