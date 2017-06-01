@@ -43,3 +43,13 @@ app.post('/ajax/deal', function(req, res) {
 app.listen(app.get('port'),function(){
     console.log('http Server:http//localhost:'+app.get('port')+'/');
 })
+
+// var server = https.createServer(options, app);
+// server.listen(3004);
+
+// app.listen=function(port)
+// {
+// http.createServer(this).listen(port)
+// };
+// app.listen 是http的服务器,
+// server是https的服务器.2个不同的server.
